@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<html lang="en"><head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1071.0" data-gr-ext-installed="">
+    <!-- <header>
+      <div class="container container-fluid">
+        
+        <div class="links">
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">All Post</a>
+          
+        </div>
+        <div class="action-btn">
+            <a href="pages/login.html"
+              ><button class="btn btn-scoundary">Login</button></a
+            >
+            <a href="pages/signup.html">
+              <button class="btn btn-primary">Sign Up</button></a
+            >
+            <i class="uil uil-align-center-alt menu" onclick="menu()"></i>
+          </div>
+      </div>
+    </header> -->
+    <main style="padding-top: 70px;">
+
+
+<main>
+  <div class="container">
+    <div class="page-top">
+      <div class="top flex">
+        <div class="page-name">
+          <a href="" class="learn">
+            <span class="material-icons"> keyboard_return </span> Go back
+          </a>
+          <h1>All Posts</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<section class="sp">
+  <div class="container">
+    <div class="blog-tags">
+    {% for i in form %}
+        
+    <p class="tag">
+      <a style="color: white;" href="{% url 'blogdetail' i.id %}">{{ i.Post_title }}</a>
+    </p>
+    {% endfor %}
+    
+    
+  </div>
+  </div>
+</section>
+
+
+
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="grid-4">
+          
+          <div class="link">
+            <h2>Quick link</h2>
+            <div class="q-link">
+              <a href="{% url 'home' %}">Home</a>
+              <a href="">About</a>
+              <a href="">All Post</a>
+            </div>
+          </div>
+          <div class="link">
+            
+            <h2>Your Favourites</h2>
+            <div class="q-link">
+              <a href="{% url 'like_post' %}">Likes</a>
+              <a href="{% url 'book_post' %}">Bookmarks</a>
+            </div>
+            
+          </div>
+          <div class="news-signup">
+            <h2>Subscribe</h2>
+            <div class="newsletter">
+              <form method="POST">
+              <input type="email" name="email" maxlength="100" placeholder="Enter your email" required="" id="id_email">
+              <button class="btn btn-primary">Subscribe</button>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+        <div class="share">
+          <div class="social">
+            <a href="https://www.facebook.com/">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/i/flow/login">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/blogapp/url.js" id="url"></script>
+
+
+
+</body>
+</html>
+
+{% endblock %}

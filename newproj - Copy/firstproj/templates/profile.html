@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br><br>
+
+<div class="container">
+    <div class="jumbotron">
+            
+        <div class="col-md-6">
+            <div class="card card-body">
+                 <h1 style="margin-bottom: -15px;">User Profile</h1>
+                 <p style="font-size: 30px;"><a href="{% url 'posted' %}"><i class='bx bx-plus' style="margin-left: 400px; height: 50px; width:50px"></i></a>
+                <a href="#"><i class='bx bx-cog'></i></a></p>
+                
+                    
+                <hr>
+                <p><h2>{{ request.user.username }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="margin-left: 250px;">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                  </svg></h2></p>
+                <p><h3>{{ request.user.email }}</h3></p><br><br>
+                <p><a href="{% url 'apply' %}"><input type="submit" value="Appliedjobs" class="btn btn-success"></a>
+                <a href="{% url 'home' %}"><input type="submit" value="Posts" class="btn btn-primary"></a></p>
+                <h1><a href="https://www.instagram.com/"><i class='bx bxl-instagram'  ></i></a>
+                <a href="https://www.facebook.com/"><i class='bx bxl-facebook-circle' style="margin-left: 50px;"></i></a>
+                <a href="https://www.whatsapp.com/"><i class='bx bxl-whatsapp' style="margin-left: 50px;"></i></a>
+                <a href="https://www.linkedin.com/"><i class='bx bxl-linkedin' style="margin-left: 50px;"></i></a></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

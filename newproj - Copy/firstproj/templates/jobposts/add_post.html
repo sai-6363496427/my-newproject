@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br><br>
+
+<div class="container">
+    <div class="jumbotron">
+        <a href=""></a>
+        <div class="col-md-6">
+            <div class="card card-body">
+
+                <h1>Add New Posta</h1>
+                <hr>
+              
+                l<form action="{% url 'posted' %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <a href="{% url 'home' %}"><input type="submit" value="Add" class="btn btn-primary"></a>
+                </form>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}

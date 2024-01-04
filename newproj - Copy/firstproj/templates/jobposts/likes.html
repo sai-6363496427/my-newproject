@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="sec-title">Liked Posts</h1>
+        <div class="grid-3">
+                {% for i in var %}
+                    <a href="#">
+                        <div class="card">
+                        <div class="post-img">
+                            <img src="images/post.png" alt="" />
+                            <div class="tag"> {{ i.Post_type }}</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>
+                            
+                            {{ i.description }}
+                            
+                            </h3>
+                            <div class="author">
+                            <div class="profile-pic">
+                                <img src="images/author.svg" alt="" />
+                            </div>
+                            <div class="details">
+                                <p>{{i.Author_name }}</p>
+                                <small>June 20, 2023</small>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+        {% endfor %}
+    </div> 
+</div> 
+</body>
+</html>   
+{% endblock %}

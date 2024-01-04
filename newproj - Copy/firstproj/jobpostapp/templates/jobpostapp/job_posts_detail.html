@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        <h1>{{ job_details.company }} company details</h1>
+                        <p>title:-{{ job_details.title }}</p>
+                        <p>location :-{{ job_details.location }}</p>
+                        <p>salary :-{{ job_details.salary }}</p>
+                        <p>Type :-{{ job_details.Type }}</p>
+                        <p>posted_on :-{{ job_details.posted_on }}</p>
+                        <p>Experiance :-{{ job_details.Experiance }}</p>
+                        <p>Description:-{{ job_details.Description }}</p>
+                        <p>Roles_Responsibiletes :-{{ job_details.Roles_Responsibiletes }}</p>
+                        <!-- <p><a class="btn btn-warning" href="#">Update</a></p> -->
+                        <a href="{% url 'jobpost' %}"  class="btn btn-primary">Apply</a>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

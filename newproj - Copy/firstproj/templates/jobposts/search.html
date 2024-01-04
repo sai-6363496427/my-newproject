@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+   
+    <div class="container">
+        <div class="jumbotron">
+            <br><br>
+            <form class="d-flex" role="search" method="POST">
+                {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="Search" name="search_qry" required aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+               </form>
+               <br><br><br>
+               {% if search_qry %}
+               <div class="grid-3">
+                {% if posts %}
+                <div class="row">
+                    {% for i in posts %}
+                    <div class="col-md-4">
+                        <br><br><br><br>
+                    <a href="{% url 'blogdetail' i.id %}">
+                    
+                    <div class="card">
+                        <div class="post-img">
+                        <img src="images/post.png" alt="" />
+                        <div class="tag">{{ i.Post_type }}</div>
+                        </div>
+                        <div class="card-content">
+                        <h3>
+                            {{ i.Post_title }}
+                        </h3>
+                        <div class="author">
+                            <div class="profile-pic">
+                            <img src="images/author.svg" alt="" />
+                            </div>
+                            <div class="details">
+                            <p>{{ i.author_name }}</p>
+                            <small>{{ i.Time }}</small>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <h3>No search results found</h3>
+                {% endif %}
+              </div>
+              {% else %}
+                <h1>Please enter a search query</h1>
+              {% endif %}
+        </div>
+    </div>
+    <section class="sp">
+      <div class="container">
+        <h1 class="sec-title">Top blogs</h1>
+        <div class="grid-3">
+          <!-- card -->
+          {% for i in py %}
+          <a href="{% url 'blogdetail' i.id %}">
+            <div class="card">
+              <div class="post-img">
+                <img src="images/post.png" alt="" />
+                <div class="tag">{{ i.Post_type }}</div>
+              </div>
+              <div class="card-content">
+                <h3>
+                  {{ i.Post_title }}
+                </h3>
+                <div class="author">
+                  <div class="profile-pic">
+                    <img src="images/author.svg" alt="" />
+                  </div>
+                  <div class="details">
+                    <p>{{ i.author_name }}</p>
+                    <small>{{ i.Time }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <center>
+          <a href=""><button class="btn btn-primary rounded view">
+            View more <span class="material-icons"> trending_flat </span>
+          </button></a>
+        </center>
+      </div>
+    </section>
+    <section class="sp">
+      <div class="container">
+        <h1 class="sec-title">New blogs</h1>
+        <div class="grid-3">
+          <!-- card -->
+          {% for i in spider %}
+          <a href="{% url 'blogdetail' i.id %}">
+            <div class="card">
+              <div class="post-img">
+                <img src="images/post.png" alt="" />
+                  <div class="tag">
+                    
+                      {{ i.Post_type }}
+                  
+                  </div>
+              </div>
+              <div class="card-content">
+                <h3>
+                  {{ i.Post_title }}
+                </h3>
+                <div class="author">
+                  <div class="profile-pic">
+                    <img src="images/author.svg" alt="" />
+                  </div>
+                  <div class="details">
+                    <p>{{ i.author_name }}</p>
+                    <small>{{ i.Time }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <center>
+          <a href=""><button class="btn btn-primary rounded view">
+            View more <span class="material-icons"> trending_flat </span>
+          </button></a>
+        </center>
+      </div>
+    </section>    
+  </body>
+</html>
+
+{% endblock %}

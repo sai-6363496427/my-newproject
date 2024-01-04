@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <div class="container">
+        <div class="jumbotron">
+            <h1>List Of Jobs...!!</h1>
+            <div class="row">
+                {% for i in newjobs %}
+                    <div class="col-md-4">
+                        <div class="card card-body">
+                            <a href="{{ i.id }}"><h3 style="color: red;">{{ i.title }}</h3></a>
+                            <h3>{{ i.company }}</h3>
+                            <p></p><h5><i class='bx bxs-edit-location'></i>{{ i.location }}&nbsp;&nbsp;<i class='bx bx-rupee'></i>{{ i.salary }}&nbsp;&nbsp;<i class='bx bx-time-five' ></i>{{ i.Type }}</h5></p>
+                            
+                            
+                        </div>
+                    </div>
+               {% endfor %}
+            </div>
+        </div>
+     </div>
+
+{% endblock %}
